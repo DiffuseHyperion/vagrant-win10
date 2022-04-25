@@ -10,6 +10,7 @@ mount /dev/sdb1 /media/HDD
 export VAGRANT_HOME=/media/HDD/.vagrant.d
 export VAGRANT_DOTFILE_PATH=/media/HDD/.vagrant.d
 
+cd /media/HDD
 apt-get update -y
 apt-get install -y qemu-kvm libvirt-daemon-system libvirt-dev
 chown root:kvm /dev/kvm
@@ -25,7 +26,6 @@ echo $vagrant_latest_version
 curl -O https://releases.hashicorp.com/vagrant/$(echo $vagrant_latest_version)/vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 dpkg -i vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 vagrant plugin install vagrant-libvirt
-cd /media/HDD
 mkdir win10
 cd win10
 curl -O https://github.com/DiffuseHyperion/vagrant-win10/raw/main/Vagrantfile

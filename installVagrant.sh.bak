@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 mkdir /media/HDD
-mount dev/sdb1 /media/HDD
+mount /dev/sdb1 /media/HDD
 
 export VAGRANT_HOME=/media/HDD/.vagrant.d
 export VAGRANT_DOTFILE_PATH=/media/HDD/.vagrant.d
