@@ -1,5 +1,9 @@
 #!/bin/bash
 # most code copied from https://medium.com/axon-technologies/installing-a-windows-virtual-machine-in-a-linux-docker-container-c78e4c3f9ba1
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
 mkdir /media/HDD
 mount dev/sdb1 /media/HDD
 
