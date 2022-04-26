@@ -30,3 +30,10 @@ vagrant plugin install vagrant-libvirt
 mkdir win10
 cd win10
 curl -O https://raw.githubusercontent.com/DiffuseHyperion/vagrant-win10/main/Vagrantfile
+
+cd ..
+mkdir libvirt
+cd libvirt
+mkdir images
+curl -O https://raw.githubusercontent.com/DiffuseHyperion/vagrant-win10/main/pool.xml
+virsh pool-create pool.xml
