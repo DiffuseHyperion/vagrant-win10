@@ -24,6 +24,8 @@ echo $vagrant_latest_version
 curl -O https://releases.hashicorp.com/vagrant/$(echo $vagrant_latest_version)/vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 dpkg -i vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 
+chown diffusehyperion:diffusehyperion -R /media/HDD/.vagrant.d
+
 mkdir win10
 cd win10
 curl -O https://raw.githubusercontent.com/DiffuseHyperion/vagrant-win10/main/Vagrantfile
@@ -37,6 +39,6 @@ virsh pool-create pool.xml
 
 echo "Install complete! Run the following 3 ocmmands:"
 echo "'export VAGRANT_HOME=/media/HDD/.vagrant.d'"
-echo "'VAGRANT_DOTFILE_PATH=/media/HDD/.vagrant.d'"
+echo "'export VAGRANT_DOTFILE_PATH=/media/HDD/.vagrant.d'"
 echo "'vagrant plugin install vagrant-libvirt'"
 
