@@ -1,0 +1,14 @@
+<pool type='dir'>
+  <name>default</name>
+  <uuid>0ec0e393-28a2-e975-feec-0c7356f38d08</uuid>
+  <source>
+  </source>
+  <target>
+    <path>/media/HDD/libvirt/images</path>
+    <permissions>
+      <mode>0711</mode>
+      <owner>-1</owner>
+      <group>-1</group>
+    </permissions>
+  </target>
+</pool>
