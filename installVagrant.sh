@@ -10,6 +10,7 @@ echo "Where should vagrant be located? Ideally, it should be in /home/(username)
 read dir
 echo Storing files at $dir.
 
+# vagrant and libvirt installation
 cd $dir
 apt-get update -y
 apt-get install -y qemu-kvm libvirt-daemon-system libvirt-dev
@@ -28,16 +29,19 @@ dpkg -i vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 mv ~/.vagrant.d $dir/vagrant
 vagrant plugin install vagrant-libvirt
 
+# vagrantfile
 mkdir win10
 cd win10
 curl -O https://raw.githubusercontent.com/DiffuseHyperion/vagrant-win10/main/Vagrantfile
 
+# libvirt default storage pool
 cd ..
 mkdir libvirt
 cd libvirt
 mkdir images
 virsh pool-define-as --name default --type dir --target $dir/libvirt/images/
 
+# export vagrant's file location
 echo export VAGRANT_HOME=$dir/vagrant >> ~/.bash_profile
 echo export VAGRANT_DOTFILE_PATH=vagrant >> ~/.bash_profile
 source ~/.bash_profile
