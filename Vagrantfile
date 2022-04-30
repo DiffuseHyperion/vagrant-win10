@@ -6,14 +6,16 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-  # speeds stuff up yessir
-  config.vm.synced_folder ".", "/vagrant"
-  
   # set cpu, memory and disk stuff 
   config.vm.provider :libvirt do |libvirt|
     libvirt.cpus = 4
     libvirt.memory = 7168
     libvirt.machine_virtual_size = 100
+	
+	# https://github.com/vagrant-libvirt/vagrant-libvirt/issues/877
+	# ass plugin
+	domain.cpu_mode = 'host-model'
+    domain.cpu_model = 'qemu64'
   end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
