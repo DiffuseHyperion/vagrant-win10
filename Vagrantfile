@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider :libvirt do |domain|
 	# https://github.com/vagrant-libvirt/vagrant-libvirt/issues/877
 	# ass plugin
-	domain.cpu_mode = 'host-model'
+    domain.cpu_mode = 'host-model'
     domain.cpu_model = 'qemu64'
   end
   # The most common configuration options are documented and commented below.
