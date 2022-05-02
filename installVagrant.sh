@@ -50,5 +50,4 @@ echo "Install complete! You may need to run the following command:"
 echo "vagrant plugin install vagrant-libvirt"
 echo Afterwards, cd into $dir/win10 and do:
 echo "VAGRANT_DEFAULT_PROVIDER=libvirt vagrant up"
-echo "The disk size might be set to 50 GB, even if Vagrantfile says otherwise. Windows 10's partition is very likely to not occupy the disk fully. Extend Window's partition to fix this.
-
+echo "The disk size might be set to 50 GB, even if Vagrantfile says otherwise. Windows 10's partition is very likely to not occupy the disk fully. Extend Window's partition to fix this."
