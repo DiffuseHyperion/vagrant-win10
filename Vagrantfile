@@ -8,10 +8,11 @@
 Vagrant.configure("2") do |config|
   # set cpu, memory and disk stuff 
   config.vm.provider :libvirt do |libvirt|
-    libvirt.cpus = 4
+    libvirt.cpus = 8
     libvirt.memory = 7168
     libvirt.machine_virtual_size = 100
-	
+  end
+  config.vm.provider :libvirt do |domain|
 	# https://github.com/vagrant-libvirt/vagrant-libvirt/issues/877
 	# ass plugin
 	domain.cpu_mode = 'host-model'
