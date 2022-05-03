@@ -27,19 +27,20 @@ echo $vagrant_latest_version
 curl -O https://releases.hashicorp.com/vagrant/$(echo $vagrant_latest_version)/vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 dpkg -i vagrant_$(echo $vagrant_latest_version)_x86_64.deb
 mv ~/.vagrant.d $dir/vagrant
-vagrant plugin install vagrant-libvirt
 
 # vagrantfile
 mkdir win10
 cd win10
+vagrant plugin install vagrant-libvirt
 curl -O https://raw.githubusercontent.com/DiffuseHyperion/vagrant-win10/main/Vagrantfile
 
-# libvirt default storage pool
 cd ..
 mkdir libvirt
 cd libvirt
 mkdir images
-virsh pool-define-as --name default --type dir --target $dir/libvirt/images/
+virsh pool-define-as --name default --type dir --target $dir/libvirt/images
+virsh pool-start default
+virsh pool-autostart default
 
 # export vagrant's file location
 echo export VAGRANT_HOME=$dir/vagrant >> ~/.bash_profile
